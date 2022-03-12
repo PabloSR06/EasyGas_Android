@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EasyGas</string>
+    <string name="noConex">Necesitas conexion a internet</string>
 </resources>
