@@ -2,26 +2,24 @@ package es.easygas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
-public class WebActivity extends AppCompatActivity {
+public class WebPrueba extends AppCompatActivity {
 
     private WebView miVisorWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
-
-        String url  = "https://easygasapp.000webhostapp.com/";
+        setContentView(R.layout.activity_web1);
 
 
+
+        Bundle parametros = this.getIntent().getExtras();
+        String url = parametros.getString("url");
 
         miVisorWeb = (WebView) findViewById(R.id.webview);
         final WebSettings ajustesVisorWeb = miVisorWeb.getSettings();
@@ -51,5 +49,4 @@ public class WebActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
 }

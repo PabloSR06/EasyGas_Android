@@ -23,7 +23,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (isConnected() == true){
-                    startActivity(new Intent(MainActivity.this, WebActivity.class));
+                    Uri uri = getIntent().getData();
+                    String path = "";
+                    if(uri!=null){
+                        path = uri.toString();
+                        Toast.makeText(MainActivity.this, "Path = "+path, Toast.LENGTH_SHORT).show();
+
+                        Intent prueba = new Intent(MainActivity.this, WebPrueba.class);
+                        prueba.putExtra("url", path);
+                        startActivity(prueba);
+                    }else{
+                        startActivity(new Intent(MainActivity.this, WebActivity.class));
+                    }
+
+
                 }else{
                     startActivity(new Intent(MainActivity.this, ErrorActivity.class));
                 }
@@ -31,11 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        Uri uri = getIntent().getData();
-        if(uri!=null){
-            String path = uri.toString();
-            Toast.makeText(MainActivity.this, "Path = "+path, Toast.LENGTH_SHORT).show();
-        }
+
+
 
     }
 
