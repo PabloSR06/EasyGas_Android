@@ -6,8 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
+
+import java.net.URI;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000);
+
+        Uri uri = getIntent().getData();
+        if(uri!=null){
+            String path = uri.toString();
+            Toast.makeText(MainActivity.this, "Path = "+path, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
